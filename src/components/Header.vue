@@ -1,6 +1,7 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
+        <h2>{{ newTitle }}</h2>
     </header>
 </template>
 
@@ -9,6 +10,18 @@
         name: 'Header',
         props: {
             title: String
+        },
+    data() {
+        return {
+            name: 'Cormac'
+        }
+    },
+        computed: {
+            newTitle: function() {
+                console.log(this.title);
+                console.log(this.name);
+                return this.name.toLowerCase();
+            }
         }
     }
 </script>
