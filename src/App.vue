@@ -1,21 +1,23 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <Header v-bind:title="title" />
-    <ul>
+  <div id="app" v-if="status === 'Ready'">
+    
+    <Header v-if="isTrue" v-bind:title="title" />
+    <img v-else src="./assets/logo.png"> <!-- V-ELSE MUST FOLLOW A V-IF OR ELSE IT WON'T WORK -->
+    <ul >
       <li v-for="(item, index) in movies">{{ index + 1 }} {{ item }}</li>
       <li v-for="actor in actors"> {{ actor.name }}</li>
 
       <!-- LOOP THROUGH AN OBJECT -->
       <li v-for="(value, key) in profile"> {{key}}: {{ value }} </li>
-
-      <!-- LOOPING OVER A COMPONENT 
-      <Header 
-        :key="actor.id"
-        v-for="actor in actors"
-        :title="actor.name"
-      /--> 
     </ul>
+  </div>
+
+  <div v-else-if="status === 'Loading'">
+    Loading...
+  </div>
+
+  <div v-else>
+    Error 
   </div>
 </template>
 
@@ -29,6 +31,8 @@ export default {
     return {
       message: 'test',
       title: 'Vue movie DB',
+      isTrue: true,
+      status: 'Ready',
       movies: [
         'Terminator',
         'Gremlins',
