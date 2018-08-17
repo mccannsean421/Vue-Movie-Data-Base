@@ -2,14 +2,14 @@
   <div id="app">
     
     <Header :title="title" />
-
+    <MoviesList />
   </div>
 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
+import MoviesList from './components/MoviesList.vue'
 
 export default {
   name: 'app',
@@ -20,8 +20,8 @@ export default {
     }
   },
   components: {
-    HelloWorld,
-    Header
+    Header,
+    MoviesList
   }
 }
 </script>
