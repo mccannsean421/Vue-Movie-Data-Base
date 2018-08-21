@@ -1,9 +1,8 @@
 <template>
     <div>
-        Movies list
-        
-            <div v-for="movie in movies"><Movie v-bind:movie="movie" /></div>
-        
+        <ul>
+            <li v-for="movie in movies"><Movie :movie="movie" /></li>
+        </ul>
     </div>  
 </template>
 
@@ -38,6 +37,13 @@
     }
 </script>
 
-<style>
-
+<style scoped>
+    ul {
+        list-style: none;
+        display: grid;
+        padding: 1rem;
+        margin: 0;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(6, 1fr);
+    }
 </style>
