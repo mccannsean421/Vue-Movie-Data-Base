@@ -2,7 +2,7 @@
   <div id="app">
     
     <Header :title="title" />
-    <MoviesList />
+    <router-view />
   </div>
 
 </template>
@@ -15,13 +15,11 @@ export default {
   name: 'app',
   data() {
     return {
-      message: 'test',
       title: 'Vue movie DB',
     }
   },
   components: {
     Header,
-    MoviesList
   }
 }
 </script>
